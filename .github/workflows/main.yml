@@ -55,6 +55,18 @@ jobs:
           git commit --amend -m "${{ github.event.head_commit.message }} - Cleaned and in Sync"
           git push --force
 
+      - name: Build Wheel
+        run: |
+          pip install wheel
+          python setup.py sdist bdist_wheel
+
+
+      - name: Publish a Python distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.4.1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+      
 
       - name: Generate Docs
         run: |
@@ -70,20 +82,6 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           enable_jekyll: true
           allow_empty_commit: true
-
-
-      - name: Build Wheel
-        run: |
-          pip install wheel
-          python setup.py sdist bdist_wheel
-
-
-      - name: Publish a Python distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.4.1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
-
 
   test:
       runs-on: ubuntu-latest
