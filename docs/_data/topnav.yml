@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: github
-      external_url: https://github.com/ELC/testnbdev/tree/master/
+      external_url: https://github.com/ELC/nbdev_template/tree/master/
 
 #Topnav dropdowns
 topnav_dropdowns:
