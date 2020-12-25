@@ -13,6 +13,6 @@ entries:
       title: module name here
       url: core.html
     output: web
-    title: testnbdev
+    title: nbdev_template
   output: web
   title: Sidebar
